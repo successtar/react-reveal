@@ -50,9 +50,9 @@ function make(reverse, { distance, left, right, up, down, top, bottom, big, mirr
   return lookup[checksum];
 }
 
-function Fade({ children, out, forever,
-              timeout, duration = defaults.duration, delay = defaults.delay, count = defaults.count, ...props } = defaults, context = false) {
-  const effect = {
+export function makeFadeEffect({ out, forever,
+              timeout, duration = defaults.duration, delay = defaults.delay, count = defaults.count, ...props } = defaults) {
+  return {
     make,
     duration: timeout === undefined ? duration : timeout,
     delay,
@@ -61,7 +61,11 @@ function Fade({ children, out, forever,
     style: { animationFillMode: 'both', },
     reverse: props.left,
   };
-  return context ? wrap(props, effect, effect, children) : effect;
+}
+
+function Fade({ children, ...props } = defaults) {
+  const effect = makeFadeEffect(props);
+  return wrap(props, effect, effect, children);
 }
 
 Fade.propTypes = propTypes;

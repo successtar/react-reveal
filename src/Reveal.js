@@ -10,7 +10,7 @@
 import { bool, string, number, object, oneOf, oneOfType } from 'prop-types';
 import { defaults } from './lib/globals';
 import wrap from './lib/wrap';
-import Fade from './in-and-out/Fade';
+import { makeFadeEffect } from './in-and-out/Fade';
 
 const
   propTypes = {
@@ -34,8 +34,8 @@ const
     delayOut: defaults.delay,
     countOut: defaults.count,
     foreverOut: defaults.forever,
-    inEffect: Fade(defaults),
-    outEffect: Fade({ out: true, ...defaults }),
+    inEffect: makeFadeEffect(defaults),
+    outEffect: makeFadeEffect({ out: true, ...defaults }),
   };
 
 

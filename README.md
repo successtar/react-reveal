@@ -1,5 +1,5 @@
 <h2>Disclaimer:</h2>
-<p>This is a fork of rnosov/react-reveal with fixes for warnings in React <code>^18.x.x</code></p>
+<p>This is a fork of rnosov/react-reveal with fixes for React <code>^18.x.x</code> and <code>^19.x.x</code></p>
 # React Reveal
 
 [React Reveal](https://www.react-reveal.com/) is
